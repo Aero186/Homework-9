@@ -18,5 +18,12 @@ int row, col;
   }
 
 int main(){
-  
+
+  int AirQuality_Index[10][3] = {{50, 68, 58}, {58, 115, 78}, {62, 110, 81}, {66, 124, 110}, {64, 152, 121}, {46, 143, 90}, {46, 143, 90}, {25, 91, 91}, {27, 19, 59}, {17, 13, 27}};
+
+  cout << "---Air Quality Index---" << endl;
+
+  printMatrix_3col (AirQuality_Index, 10, 3);
+
+  int CountUnhealthySensitive; 
 }
