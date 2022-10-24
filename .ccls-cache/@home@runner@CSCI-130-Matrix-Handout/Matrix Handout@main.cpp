@@ -5,7 +5,8 @@
 #include <iomanip>
 using namespace std;
 
-void printMatrix_3col(int matrix[][3], int N_ROWS, int N_COLUMNS){
+
+void printMatrix_3col(int matrix[10][3], int N_ROWS, int N_COLUMNS){
 
 int row, col;
     for (row = 0; row < N_ROWS; row++)
@@ -17,16 +18,16 @@ int row, col;
     }
   }
 
-int CountUnhealthySensitive(int matrix[][3], int N_ROWS, int city_col){
+int CountUnhealthySensitive (int matrix[10][3], int N_ROWS, int city_col){
 
   int count = 0; 
   int unhealthy_level = 101;
   int row;
   
   for (row = 0; matrix[row][city_col] >= unhealthy_level; row++){
-    count ++;
-      return count;
+    count++;
     }
+  return count;
 }
 
 int main(){
@@ -37,5 +38,6 @@ int main(){
 
   printMatrix_3col (AirQuality_Index, 10, 3);
 
-  int CountUnhealthySensitive; 
+  CountUnhealthySensitive (AirQuality_Index, 10, 3);
+  
 }
