@@ -22,10 +22,12 @@ int CountUnhealthySensitive (int matrix[10][3], int N_ROWS, int city_col){
 
   int count = 0; 
   int unhealthy_level = 101;
-  int row;
-  
-  for (row = 0; matrix[row][city_col] >= unhealthy_level; row++){
-    count++;
+  int row = 0;
+
+  for (row; row <= 10; row++){
+    if (matrix[row][city_col] >= unhealthy_level){
+      count++;
+      }
     }
   return count;
 }
@@ -37,7 +39,17 @@ int main(){
   cout << "---Air Quality Index---" << endl;
 
   printMatrix_3col (AirQuality_Index, 10, 3);
+  cout << endl;
 
-  CountUnhealthySensitive (AirQuality_Index, 10, 3);
+  int count;
+
+  count = CountUnhealthySensitive (AirQuality_Index, 10, 0);
+  cout << "From 10/4/2020 to 10/13/2020 the air quality \nwas unhealthy for sensitive groups in: " << endl;
+  cout << "Grand Junction: " << count - 1 <<  " times." << endl;
+
   
+  count = CountUnhealthySensitive (AirQuality_Index, 10, 1);
+  cout << "Fort Collins: " << count <<  " times." << endl;
+  count = CountUnhealthySensitive (AirQuality_Index, 10, 2);
+  cout << "Denver / Boulder: " << count <<  " times." << endl;
 }
