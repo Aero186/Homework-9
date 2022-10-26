@@ -17,8 +17,8 @@ int row, col;
     }
   }
 
-// CODE PROVIDED BY Biruk Abebe
-// CODE ADAPTED BY Samuel Peel
+// vvv CODE PROVIDED BY Biruk Abebe vvv
+// vvv CODE ADAPTED BY Samuel Peel vvv
 int row_avg(int matrix[][7], int numCols, int numRows){
 
   int sum, avgR;
@@ -47,10 +47,7 @@ int main() {
 
   int grade[5][5] = {{100, 100, 100, 100}, {100, 0, 100, 0}, {82, 94, 73, 86}, {64, 74, 84, 94}, {94, 84, 74, 64}};
 
-
   cout << endl;
-
-  
 
   int finalGrades[60][7] = {
     {100, 100, 100, 100, row_avg(finalGrades, 1, 4), weightedAverage(grade, 0)}, 
