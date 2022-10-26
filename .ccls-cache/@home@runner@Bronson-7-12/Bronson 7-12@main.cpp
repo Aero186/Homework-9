@@ -26,17 +26,71 @@ int main() {
 
   cout << endl; */
 
-  double correct = 0;
 
+  double correct = 0;
   
 for( row = 0; row <= 6; row++){
+
   for ( col = 0; col <= 0; col++){
     if (master[row] == input[col][row]){
       correct++;
       }
     }
   }
-   cout << "Test 1 scored " << (5 * correct) << " points"; 
+   cout << "Test 1 scored: " << (5 * correct) << " points" << endl; 
+    correct = 0;
+
+for( row = 0; row <= 6; row++){
+  for ( col = 1; col <= 1; col++){
+    if (master[row] == input[col][row]){
+      correct++;
+      }
+    }
+  }
+   cout << "Test 2 scored: " << (5 * correct) << " points" << endl;
+    correct = 0;
+
+  for( row = 0; row <= 6; row++){
+  for ( col = 2; col <= 2; col++){
+    if (master[row] == input[col][row]){
+      correct++;
+      }
+    }
+  }
+   cout << "Test 3 scored: " << (5 * correct) << " points" << endl;
+    correct = 0;
+
+  for( row = 0; row <= 6; row++){
+  for ( col = 3; col <= 3; col++){
+    if (master[row] == input[col][row]){
+      correct++;
+      }
+    }
+  }
+   cout << "Test 4 scored: " << (5 * correct) << " points" << endl;
+    correct = 0;
+
+  for( row = 0; row <= 6; row++){
+  for ( col = 4; col <= 4; col++){
+    if (master[row] == input[col][row]){
+      correct++;
+      }
+    }
+  }
+   cout << "Test 5 scored: " << (5 * correct) << " points" << endl; 
+    correct = 0;
+
+  for( row = 0; row <= 6; row++){
+  for ( col = 5; col <= 5; col++){
+    if (master[row] == input[col][row]){
+      correct++;
+      }
+    }
+  }
+   cout << "Test 6 scored: " << (5 * correct) << " points" << endl; 
+    correct = 0;
+
+  
 
 }
 
