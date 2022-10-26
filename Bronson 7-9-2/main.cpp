@@ -42,16 +42,23 @@ int weightedAverage(int matrix[][4], int numCols){
   return weight;
 }
 
-int indexSmallestElement(int matrix[][4], int numCols, int numRows){
-  
-  int minIndex = 0;     // default assumption is to assume that the smallest  
-                        // value is in the first spot
-
-  for (int index = 0; index <= numRows; index++){
-    if ( matrix[numCols][minIndex] < matrix[numCols][index] )
-      minIndex = index;
+// vvv CODE PROVIEDED BY Adam Allard vvv
+// vvv CODE ADAPTED BY Samuel Peel vvv
+int findLowest(int matrix[][4], int numCols) {
+	int lowestScore;
+	if (matrix[numCols][1] <= matrix[numCols][2]) {
+		lowestScore = matrix[numCols][1];
+	}
+	else {
+		lowestScore = matrix[numCols][2];
+	}
+	if (matrix[numCols][3] < lowestScore) {
+		lowestScore = matrix[numCols][3];
+	}
+	if (matrix[numCols][4] < lowestScore) {
+		lowestScore = matrix[numCols][4];
   }
-    return minIndex;
+	return lowestScore;
 }
 
 
@@ -63,11 +70,11 @@ int main() {
   cout << endl;
 
   int finalGrades[60][7] = {
-    {100, 100, 100, 100, row_avg(finalGrades, 1, 4), weightedAverage(grade, 0), indexSmallestElement(grade, 0, 4)}, 
-    {100, 0, 100, 0, row_avg(finalGrades, 2, 4), weightedAverage(grade, 1), indexSmallestElement(grade, 1, 4)}, 
-    {82, 94, 73, 86, row_avg(finalGrades, 3, 4), weightedAverage(grade, 2), indexSmallestElement(grade, 2, 4)}, 
-    {64, 74, 84, 94, row_avg(finalGrades, 4, 4), weightedAverage(grade, 3), indexSmallestElement(grade, 3, 4)}, 
-    {94, 84, 74, 64, row_avg(finalGrades, 5, 4), weightedAverage(grade, 4), indexSmallestElement(grade, 4, 4)}};
+    {100, 100, 100, 100, row_avg(finalGrades, 1, 4), weightedAverage(grade, 0), findLowest(grade, 0)}, 
+    {100, 0, 100, 0, row_avg(finalGrades, 2, 4), weightedAverage(grade, 1), findLowest(grade, 1)}, 
+    {82, 94, 73, 86, row_avg(finalGrades, 3, 4), weightedAverage(grade, 2), findLowest(grade, 2)}, 
+    {64, 74, 84, 94, row_avg(finalGrades, 4, 4), weightedAverage(grade, 3), findLowest(grade, 3)}, 
+    {94, 84, 74, 64, row_avg(finalGrades, 5, 4), weightedAverage(grade, 4), findLowest(grade, 4)}};
 
   printMatrix(finalGrades, 5, 7);
 
