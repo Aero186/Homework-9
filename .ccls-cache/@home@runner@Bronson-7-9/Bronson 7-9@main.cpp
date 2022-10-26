@@ -19,43 +19,46 @@ int row, col;
 
 // CODE PROVIDED BY Biruk Abebe
 // CODE ADAPTED BY Samuel Peel
-int row_avg(int list[][7], int numCols, int numRows){
+int row_avg(int matrix[][7], int numCols, int numRows){
 
   int sum, avgR;
 
-//average of a row
-for (int i = 0; i < numCols; i++)//iterate each row(one loop for the row)
+//average of a column
+for (int j = 0; j < numCols; j++)//iterate each column
 {
-    sum=0;//reset sum for each row
-    for (int j = 0; j < numRows; j++){//iterate each column in each row(one loop for the column)
-            sum = sum + list[i][j];//will sum up the contents of the current row
-  }
-    avgR = sum/numRows;//give you the average of each row
-  return avgR;
+    sum = 0;//reset sum for each column
+    for (int i = 0; i < numRows; i++)//iterate each row for each column
+            sum = sum + matrix[j][i];//will sum up the contents of the current column
+
+    avgR=sum/numRows;//give you the average of each column
 }
+  return avgR;
   }
 
-int weightedAverage(int matrix[][7], int N_ROWS, int student){
+int weightedAverage(int matrix[][5], int numCols){
 
-  int sum = 0;
+  int weight = ((0.2 * matrix[numCols][1]) + (0.3 * matrix[numCols][2]) + (0.3 * matrix[numCols][3]) + (0.2 * matrix[numCols][4]));
 
-  sum = ((0.2*matrix[student][1]) + (0.3*matrix[student][2]) + (0.3*matrix[student][3]) + (0.2*matrix[student][4]));
-
-  return sum;
+  return weight;
 }
 
 
 int main() {
 
-  int grade[5][4] = {{100, 100, 100, 100}, {100, 0, 100, 0}, {82, 94, 73, 86}, {64, 74, 84, 94}, {94, 84, 74, 64}};
+  int grade[5][5] = {{100, 100, 100, 100}, {100, 0, 100, 0}, {82, 94, 73, 86}, {64, 74, 84, 94}, {94, 84, 74, 64}};
 
 
   cout << endl;
 
   
 
-  int finalGrades[60][7] = {{100, 100, 100, 100, row_avg(finalGrades, 1, 4), weightedAverage(finalGrades, 4, 1)}, {100, 0, 100, 0}, {82, 94, 73, 86}, {64, 74, 84, 94}, {94, 84, 74, 64}};
+  int finalGrades[60][7] = {
+    {100, 100, 100, 100, row_avg(finalGrades, 1, 4), weightedAverage(grade, 0)}, 
+    {100, 0, 100, 0, row_avg(finalGrades, 2, 4), weightedAverage(grade, 1)}, 
+    {82, 94, 73, 86, row_avg(finalGrades, 3, 4), weightedAverage(grade, 2)}, 
+    {64, 74, 84, 94, row_avg(finalGrades, 4, 4), weightedAverage(grade, 3)}, 
+    {94, 84, 74, 64, row_avg(finalGrades, 5, 4), weightedAverage(grade, 4)}};
 
-  printMatrix(finalGrades, 60, 7);
+  printMatrix(finalGrades, 5, 7);
 
 }
