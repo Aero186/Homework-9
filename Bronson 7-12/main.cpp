@@ -13,7 +13,7 @@ int main() {
   int input[6][6] = {{1, 0, 1, 1, 1}, {1, 1, 1, 1, 1}, {1, 1, 0, 0, 1}, {0, 1, 0, 0, 0}, {0, 0, 0, 0, 0}, {1, 1, 0, 1, 0}};
   int row, col, index;
 
-    for (row = 0; row < 6; row++)
+/*    for (row = 0; row < 6; row++)
     {
         for(col = 0; col < 5; col++)
             cout << input[row][col] << " ";
@@ -24,7 +24,19 @@ int main() {
   for (index = 0; index < 5; index++)
     cout << master[index] << " ";
 
-  cout << endl;
+  cout << endl; */
+
+  double correct = 0;
+
+  
+for( row = 0; row <= 6; row++){
+  for ( col = 0; col <= 0; col++){
+    if (master[row] == input[col][row]){
+      correct++;
+      }
+    }
+  }
+   cout << "Test 1 scored " << (5 * correct) << " points"; 
 
 }
 
